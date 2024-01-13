@@ -13,7 +13,7 @@ The project contains the following steps:
 You can use the final version of the pipleine, by executing the command below. 
 ```bash
 > mlflow run https://github.com/DanielaMorariu1990/build-ml-pipeline-for-short-term-rental-prices.git \
-             -v 1.0.2 \
+             -v 1.0.3 \
              -P hydra_options="etl.sample='sample2.csv'"
 ```
 
