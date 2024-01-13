@@ -28,6 +28,13 @@ def go(args):
 
     logger.info(f"Convert last_review to datetime")
     input_data["last_review"] = pd.to_datetime(input_data["last_review"])
+
+    logger.info(f"Drop rows in the dataset that are not in the proper geolocation.")
+    idx = input_data["longitude"].between(-74.25, -73.50) & input_data[
+        "latitude"
+    ].between(40.5, 41.2)
+    input_data = input_data[idx].copy()
+
     input_data.to_csv(f"{args.output_artifact}", index=False)
     artifact = wandb.Artifact(
         args.output_artifact,
